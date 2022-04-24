@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.271" />
-        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_options_24dp.xml" value="0.363" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/post_list_item.xml" value="0.25" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.271" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.271" />
       </map>

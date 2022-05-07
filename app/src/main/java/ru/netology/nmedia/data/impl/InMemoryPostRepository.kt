@@ -1,14 +1,8 @@
 package ru.netology.nmedia.data.impl
 
 import androidx.lifecycle.MutableLiveData
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import ru.netology.nmedia.R
 import ru.netology.nmedia.data.PostRepository
 import ru.netology.nmedia.dto.Post
-import java.util.*
 
 class InMemoryPostRepository : PostRepository {
 
@@ -24,20 +18,20 @@ class InMemoryPostRepository : PostRepository {
         )
     )
 
-    init {
-        GlobalScope.launch(Dispatchers.Default) {
-            while (true) {
-                delay(10_000)
-                val currentPost = checkNotNull(data.value) {
-                    "Data value should not be null"
-                }
-                val newPost = currentPost.copy(
-                    published = Date().toString()
-                )
-                data.postValue(newPost)
-            }
-        }
-    }
+//    init {
+//        GlobalScope.launch(Dispatchers.Default) {
+//            while (true) {
+//                delay(10_000)
+//                val currentPost = checkNotNull(data.value) {
+//                    "Data value should not be null"
+//                }
+//                val newPost = currentPost.copy(
+//                    published = Date().toString()
+//                )
+//                data.postValue(newPost)
+//            }
+//        }
+//    }
 
     override fun like() {
         val currentPost = checkNotNull(data.value) { "Data value should not be null" }

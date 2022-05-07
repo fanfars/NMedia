@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master, main, ViewGroup]
+    branches: [ master, main, mvvm]
   pull_request:
-    branches: [ master, main, ViewGroup]
+    branches: [ master, main, mvvm]
 
 jobs:
   build:

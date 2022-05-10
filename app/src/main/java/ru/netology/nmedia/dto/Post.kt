@@ -2,6 +2,7 @@ package ru.netology.nmedia.dto
 
 import java.math.RoundingMode
 import java.text.DecimalFormat
+
 import androidx.appcompat.app.AppCompatActivity
 
 data class Post(
@@ -23,7 +24,6 @@ fun countFormat(count: Int): String {
         in 10_000..999_999 -> "${roundNoDecimal(count.toDouble() / 1_000.0)}K"
         in 1_000_000..1_099_999 -> "${roundNoDecimal(count.toDouble() / 1_000_000.0)}M"
         in 1_100_000..Int.MAX_VALUE -> "${roundWithDecimal(count.toDouble() / 1_000_000.0)}M"
-
         else -> count.toString()
     }
 }

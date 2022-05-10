@@ -46,5 +46,3 @@ class MainActivity : AppCompatActivity() {
 @DrawableRes
 private fun getLikeIconResId(liked: Boolean) =
     if (liked) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24dp
-
-

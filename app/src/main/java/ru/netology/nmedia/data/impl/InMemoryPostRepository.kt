@@ -6,56 +6,46 @@ import ru.netology.nmedia.dto.Post
 
 class InMemoryPostRepository : PostRepository {
 
+    private val posts
+        get() = checkNotNull(data.value) { "Data value should not be null" }
+
     override val data = MutableLiveData(
-        Post(
-            id = 0L,
-            author ="author" ,
-            content = "content",
-            published = "published",
-            likes = 9999,
-            shares = 99999,
-            views = 150
-        )
+        List(100) { index ->
+            Post(
+                id = index + 1L,
+                author = "Netology",
+                content = "Some random content $index",
+                published = "07/05/2022",
+                likes = 9999,
+                shares = 99999,
+                views = 150
+            )
+        }
     )
 
-//    init {
-//        GlobalScope.launch(Dispatchers.Default) {
-//            while (true) {
-//                delay(10_000)
-//                val currentPost = checkNotNull(data.value) {
-//                    "Data value should not be null"
-//                }
-//                val newPost = currentPost.copy(
-//                    published = Date().toString()
-//                )
-//                data.postValue(newPost)
-//            }
-//        }
-//    }
-
-    override fun like() {
-        val currentPost = checkNotNull(data.value) { "Data value should not be null" }
-        val likedPost = currentPost.copy(
-            likedByMe = !currentPost.likedByMe,
-            likes = if (currentPost.likedByMe) currentPost.likes - 1 else currentPost.likes + 1
-        )
-        data.value = likedPost
+    override fun like(postId: Long) {
+        data.value = posts.map {
+            if (it.id != postId) it else it.copy(
+                likedByMe = !it.likedByMe,
+                likes = if (it.likedByMe) it.likes - 1 else it.likes + 1
+            )
+        }
     }
 
-    override fun share() {
-        val currentPost = checkNotNull(data.value) { "Data value should not be null" }
-        val sharedPost = currentPost.copy(
-            shares = ++currentPost.shares
-        )
-        data.value = sharedPost
+    override fun share(postId: Long) {
+        data.value = posts.map {
+            if (it.id != postId) it else it.copy(
+                shares = it.shares + 1
+            )
+        }
     }
 
-    override fun view() {
-        val currentPost = checkNotNull(data.value) { "Data value should not be null" }
-        val viewedPost = currentPost.copy(
-            views = ++currentPost.views
-        )
-        data.value = viewedPost
+    override fun view(postId: Long) {
+        data.value = posts.map {
+            if (it.id != postId) it else it.copy(
+                views = it.views + 1
+            )
+        }
     }
 
 

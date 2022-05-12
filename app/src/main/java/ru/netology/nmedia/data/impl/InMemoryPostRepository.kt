@@ -6,11 +6,13 @@ import ru.netology.nmedia.dto.Post
 
 class InMemoryPostRepository : PostRepository {
 
+    private var nextId = GENERATED_POSTS_AMOUNT.toLong()
+
     private val posts
         get() = checkNotNull(data.value) { "Data value should not be null" }
 
     override val data = MutableLiveData(
-        List(100) { index ->
+        List(GENERATED_POSTS_AMOUNT) { index ->
             Post(
                 id = index + 1L,
                 author = "Netology",
@@ -48,5 +50,28 @@ class InMemoryPostRepository : PostRepository {
         }
     }
 
+    override fun delete(postId: Long) {
+        data.value = posts.filterNot { it.id == postId }
+    }
+
+    override fun save(post: Post) {
+        if (post.id == PostRepository.NEW_POST_ID) insert(post) else update(post)
+    }
+
+    private fun update(post: Post) {
+        data.value = posts.map {
+            if (it.id == post.id) post else it
+        }
+    }
+
+    private fun insert(post: Post) {
+        data.value = listOf(
+            post.copy(id = ++nextId)
+        ) + posts
+    }
+
+    private companion object {
+        const val GENERATED_POSTS_AMOUNT = 5
+    }
 
 }

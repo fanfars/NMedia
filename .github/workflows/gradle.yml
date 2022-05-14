@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master, main, RecyclerView]
+    branches: [ master, main, CRUD]
   pull_request:
-    branches: [ master, main, RecyclerView]
+    branches: [ master, main, CRUD]
 
 jobs:
   build:

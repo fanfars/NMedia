@@ -1,16 +1,13 @@
 package ru.netology.nmedia.activity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.View
-import androidx.activity.result.launch
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import ru.netology.nmedia.util.hideKeyboard
-import ru.netology.nmedia.util.showKeyboard
 import ru.netology.nmedia.viewModel.PostViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -31,31 +28,9 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-//        binding.undoButton.setOnClickListener {
-//            viewModel.onUndoClicked()
-//        }
-
         binding.fab.setOnClickListener {
             viewModel.onAddButtonClicked()
         }
-
-//        viewModel.currentPost.observe(this) { currentPost ->
-//            with(binding) {
-//                val content = currentPost?.content
-//                contentEditText.setText(content)
-//                if (content != null) {
-//                    contentEditText.requestFocus()
-//                    contentEditText.showKeyboard()
-//                    editGroup.visibility = View.VISIBLE
-//                } else {
-//                    contentEditText.clearFocus()
-//                    contentEditText.hideKeyboard()
-//                    editGroup.visibility = View.GONE
-//                }
-//
-//            }
-//
-//        }
 
         viewModel.sharePostContent.observe(this) { postContent ->
             val intent = Intent().apply {
@@ -75,8 +50,25 @@ class MainActivity : AppCompatActivity() {
             postContent ?: return@registerForActivityResult
             viewModel.onSaveButtonClicked(postContent)
         }
+
         viewModel.navigateToPostContentScreenEvent.observe(this) {
-            postContentActivityLauncher.launch()
+            postContentActivityLauncher.launch(null)
         }
+
+        viewModel.navigateToPostContentEditEvent.observe(this) {
+            postContentActivityLauncher.launch(viewModel.currentPost.value?.content)
+        }
+
+        viewModel.videoPlay.observe(this) { videoLink ->
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                val uri = Uri.parse(videoLink)
+                data = uri
+            }
+            val openVideoIntent =
+                Intent.createChooser(intent, getString(R.string.chooser_play_video))
+            startActivity(openVideoIntent)
+        }
+
     }
+
 }

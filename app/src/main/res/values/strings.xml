@@ -18,4 +18,7 @@
     <string name="description_post_edit_cancel">Cancel</string>
     <string name="chooser_share_post">Share post</string>
     <string name="add_post">Add post</string>
+    <string name="videoLink">https://www.youtube.com/watch?v=xOgT2qYAzds</string>
+    <string name="video_cover">Video cover</string>
+    <string name="chooser_play_video">Play video</string>
 </resources>

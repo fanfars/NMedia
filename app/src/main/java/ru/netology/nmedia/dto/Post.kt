@@ -1,5 +1,6 @@
 package ru.netology.nmedia.dto
 
+import android.net.Uri
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -13,7 +14,14 @@ data class Post(
     val likes: Int = 0,
     val shares: Int = 0,
     val views: Int = 0,
-    var likedByMe: Boolean = false
+    var likedByMe: Boolean = false,
+    val postVideo: PostVideo?
+)
+
+class PostVideo(
+    val title: String? = null,
+    val cover: String? = null,
+    val url: String? = null
 )
 
 fun countFormat(count: Int): String {

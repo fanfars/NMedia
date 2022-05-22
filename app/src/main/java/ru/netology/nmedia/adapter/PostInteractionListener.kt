@@ -1,6 +1,7 @@
 package ru.netology.nmedia.adapter
 
 import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.dto.PostVideo
 
 interface PostInteractionListener {
 
@@ -10,4 +11,6 @@ interface PostInteractionListener {
     fun onRemoveClicked(post: Post)
     fun onEditClicked(post: Post)
     fun onUndoClicked()
+    fun onPlayVideoClicked(postVideo: PostVideo)
+
 }

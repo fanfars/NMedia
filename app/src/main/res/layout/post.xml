@@ -74,16 +74,49 @@
         android:autoLink="web"
         android:padding="2dp"
         android:text="@string/content"
+        app:layout_constraintBottom_toTopOf="@id/videoContent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrierHeadContent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/videoContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/videoLink"
+        android:layout_marginStart="@dimen/common_spacing"
+        app:layout_constraintBottom_toBottomOf="@id/videoCover"
+        app:layout_constraintStart_toEndOf="@id/videoCover"
+        app:layout_constraintTop_toTopOf="@id/videoCover" />
+
+    <ImageView
+        android:id="@+id/videoCover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/common_spacing"
+        android:paddingTop="@dimen/common_spacing"
+        android:contentDescription="@string/video_cover"
+        android:src="@drawable/ic_baseline_play_arrow_48"
+        app:layout_constraintEnd_toStartOf="@id/videoContent"
+        app:layout_constraintTop_toBottomOf="@id/content"
+
+        />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/videoGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="videoCover,videoContent" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierContentBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:layout_marginBottom="@dimen/common_spacing"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="content" />
+        app:constraint_referenced_ids="content, videoCover" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/likesButton"

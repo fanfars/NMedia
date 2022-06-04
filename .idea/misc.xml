@@ -3,17 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.265" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_add_24dp.xml" value="0.302" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.302" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.259" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_baseline_favorite_border_24dp.xml" value="0.181" />
-        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.265" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.302" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.271" />
-        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_like_24dp.xml" value="0.2645" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_netology_48dp.xml" value="0.302" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_options_24dp.xml" value="0.363" />
-        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/ic_save_48.xml" value="0.257" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/drawable/video_cover_pic.xml" value="0.302" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/post.xml" value="0.33" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/intent_handler_activity.xml" value="0.129981884057971" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/post.xml" value="0.25" />
+        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/post_content_activity.xml" value="0.11560693641618497" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/layout/post_list_item.xml" value="0.25" />
-        <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/menu/options_post.xml" value="0.2515625" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.271" />
         <entry key="..\:/HomeWorkAndroid/NMedia/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.271" />
       </map>

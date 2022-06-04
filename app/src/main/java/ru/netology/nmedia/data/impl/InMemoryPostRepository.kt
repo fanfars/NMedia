@@ -20,7 +20,8 @@ class InMemoryPostRepository : PostRepository {
                 published = "07/05/2022",
                 likes = 9999,
                 shares = 99999,
-                views = 150
+                views = 150,
+                postVideo = null
             )
         }
     )

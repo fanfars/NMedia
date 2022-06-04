@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master, main, Storage]
+    branches: [ master, main, Fragments]
   pull_request:
-    branches: [ master, main, Storage]
+    branches: [ master, main, Fragments]
 
 jobs:
   build:

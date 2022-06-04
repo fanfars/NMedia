@@ -59,6 +59,7 @@ internal class PostsAdapter(
             binding.likesButton.setOnClickListener { listener.onLikeClicked(post) }
             binding.shareButton.setOnClickListener { listener.onShareClicked(post) }
             binding.viewsButton.setOnClickListener { listener.onViewClicked(post) }
+            binding.menu.setOnClickListener { popupMenu.show() }
         }
 
         fun bind(post: Post) {
@@ -68,19 +69,12 @@ internal class PostsAdapter(
                 author.text = post.author
                 content.text = post.content
                 published.text = post.published
-                likesCount.text = countFormat(post.likes)
-                sharesCount.text = countFormat(post.shares)
-                viewsCount.text = countFormat(post.views)
-                likesButton.setImageResource(getLikeIconResId(post.likedByMe))
-                menu.setOnClickListener {
-                    popupMenu.show()
-                }
+                likesButton.text = countFormat(post.likes)
+                shareButton.text = countFormat(post.shares)
+                viewsButton.text = countFormat(post.views)
+                likesButton.isChecked = post.likedByMe
             }
         }
-
-        @DrawableRes
-        private fun getLikeIconResId(liked: Boolean) =
-            if (liked) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24dp
     }
 
     private object DiffCallback : DiffUtil.ItemCallback<Post>() {

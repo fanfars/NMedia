@@ -5,21 +5,26 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.adapter.PostInteractionListener
 import ru.netology.nmedia.data.PostRepository
-import ru.netology.nmedia.data.impl.FilePostRepository
+import ru.netology.nmedia.data.impl.SQLiteRepository
+import ru.netology.nmedia.db.AppDb
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.dto.PostVideo
 import ru.netology.nmedia.util.SingleLiveEvent
 
 class PostViewModel(
     application: Application
-) : AndroidViewModel(application), PostInteractionListener {
+) : AndroidViewModel(application),
+    PostInteractionListener {
 
-    private val repository: PostRepository = FilePostRepository(application)
+    private val repository: PostRepository = SQLiteRepository(
+        dao = AppDb.getInstance(
+            context = application
+        ).postDao
+    )
 
     val data by repository::data
 
     val sharePostContent = SingleLiveEvent<String>()
-    val videoPlay = SingleLiveEvent<String>()
+    val videoPlay = SingleLiveEvent<String?>()
     val navigateToPostContentScreenEvent = SingleLiveEvent<String>()
     val navigateToPostScreenEvent = SingleLiveEvent<Long>()
 
@@ -34,10 +39,7 @@ class PostViewModel(
             author = "Me",
             content = content,
             published = "Today",
-            postVideo = PostVideo(
-                url = "https://www.youtube.com/watch?v=xOgT2qYAzds",
-                title = "Онлайн-образование. Революция уже наступила?"
-            )
+            videoContent = "https://www.youtube.com/watch?v=xOgT2qYAzds"
         )
         repository.save(post)
         currentPost.value = null
@@ -54,6 +56,7 @@ class PostViewModel(
 
     override fun onShareClicked(post: Post) {
         sharePostContent.value = post.content
+        repository.share(post.id)
 
     }
 
@@ -74,8 +77,8 @@ class PostViewModel(
         currentPost.value = null
     }
 
-    override fun onPlayVideoClicked(postVideo: PostVideo) {
-        videoPlay.value = postVideo.url!!
+    override fun onPlayVideoClicked(post: Post) {
+        videoPlay.value = post.videoContent
     }
 
 // endregion  PostInteractionListener

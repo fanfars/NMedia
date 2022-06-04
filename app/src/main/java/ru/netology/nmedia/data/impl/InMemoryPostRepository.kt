@@ -21,7 +21,7 @@ class InMemoryPostRepository : PostRepository {
                 likes = 9999,
                 shares = 99999,
                 views = 150,
-                postVideo = null
+                videoContent = "https://www.youtube.com/watch?v=xOgT2qYAzds"
             )
         }
     )

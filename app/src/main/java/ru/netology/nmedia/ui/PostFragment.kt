@@ -81,8 +81,8 @@ class PostFragment : Fragment() {
                     startActivity(shareIntent)
                 }
 
-                videoCover.setOnClickListener { viewModel.onPlayVideoClicked(singlePost.postVideo!!) }
-                videoContent.setOnClickListener { viewModel.onPlayVideoClicked(singlePost.postVideo!!) }
+                videoCover.setOnClickListener { viewModel.onPlayVideoClicked(singlePost) }
+                videoContent.setOnClickListener { viewModel.onPlayVideoClicked(singlePost) }
 
                 viewModel.videoPlay.observe(viewLifecycleOwner) { videoLink ->
                     val intent = Intent(Intent.ACTION_VIEW).apply {
@@ -132,8 +132,8 @@ class PostFragment : Fragment() {
         shareButton.text = countFormat(post.shares)
         viewsButton.text = countFormat(post.views)
         likesButton.isChecked = post.likedByMe
-        videoContent.text = post.postVideo?.title
-        if (post.postVideo != null) videoGroup.visibility =
+        videoContent.text = "VIDEO"
+        if (post.videoContent != null) videoGroup.visibility =
             View.VISIBLE else videoGroup.visibility = View.GONE
     }
 

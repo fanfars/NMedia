@@ -63,8 +63,8 @@ internal class PostsAdapter(
             binding.author.setOnClickListener { listener.onPostClicked(post) }
             binding.avatar.setOnClickListener { listener.onPostClicked(post) }
             binding.published.setOnClickListener { listener.onPostClicked(post) }
-            binding.videoCover.setOnClickListener { listener.onPlayVideoClicked(post.postVideo!!)}
-            binding.videoContent.setOnClickListener{ listener.onPlayVideoClicked(post.postVideo!!)}
+            binding.videoCover.setOnClickListener { listener.onPlayVideoClicked(post) }
+            binding.videoContent.setOnClickListener { listener.onPlayVideoClicked(post) }
             binding.menu.setOnClickListener { popupMenu.show() }
         }
 
@@ -79,8 +79,8 @@ internal class PostsAdapter(
                 shareButton.text = countFormat(post.shares)
                 viewsButton.text = countFormat(post.views)
                 likesButton.isChecked = post.likedByMe
-                videoContent.text = post.postVideo?.title
-                if (post.postVideo != null) videoGroup.visibility =
+                videoContent.text = "VIDEO"
+                if (post.videoContent != null) videoGroup.visibility =
                     View.VISIBLE else videoGroup.visibility = View.GONE
             }
         }

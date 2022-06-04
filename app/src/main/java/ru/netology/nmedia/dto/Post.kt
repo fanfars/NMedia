@@ -1,11 +1,10 @@
 package ru.netology.nmedia.dto
 
-import android.net.Uri
+import kotlinx.serialization.Serializable
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-import androidx.appcompat.app.AppCompatActivity
-
+@Serializable
 data class Post(
     val id: Long,
     val author: String,
@@ -18,6 +17,7 @@ data class Post(
     val postVideo: PostVideo?
 )
 
+@Serializable
 class PostVideo(
     val title: String? = null,
     val cover: String? = null,

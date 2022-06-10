@@ -14,15 +14,10 @@ data class Post(
     val shares: Int = 0,
     val views: Int = 0,
     var likedByMe: Boolean = false,
-    val postVideo: PostVideo?
+    val videoContent: String?
 )
 
-@Serializable
-class PostVideo(
-    val title: String? = null,
-    val cover: String? = null,
-    val url: String? = null
-)
+
 
 fun countFormat(count: Int): String {
     return when (count) {

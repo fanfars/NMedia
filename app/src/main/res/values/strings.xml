@@ -21,4 +21,8 @@
     <string name="videoLink">https://www.youtube.com/watch?v=xOgT2qYAzds</string>
     <string name="video_cover">Video cover</string>
     <string name="chooser_play_video">Play video</string>
+    <string name="notification_user_liked">User %1$s liked %2$s\'s post</string>
+    <string name="notification_new_post">%1$s has published a new post</string>
+    <string name="channel_remote_name">Server notifications</string>
+    <string name="channel_remote_description">Notifications from remote server</string>
 </resources>

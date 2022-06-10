@@ -64,6 +64,7 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="avatar,published,menu" />
 
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/content"
         android:layout_width="0dp"
@@ -83,8 +84,8 @@
         android:id="@+id/videoContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/videoLink"
         android:layout_marginStart="@dimen/common_spacing"
+        android:text="@string/videoLink"
         app:layout_constraintBottom_toBottomOf="@id/videoCover"
         app:layout_constraintStart_toEndOf="@id/videoCover"
         app:layout_constraintTop_toTopOf="@id/videoCover" />
@@ -93,9 +94,9 @@
         android:id="@+id/videoCover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/common_spacing"
-        android:paddingTop="@dimen/common_spacing"
         android:contentDescription="@string/video_cover"
+        android:paddingTop="@dimen/common_spacing"
+        android:paddingBottom="@dimen/common_spacing"
         android:src="@drawable/ic_baseline_play_arrow_48"
         app:layout_constraintEnd_toStartOf="@id/videoContent"
         app:layout_constraintTop_toBottomOf="@id/content"
